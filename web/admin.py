@@ -4,7 +4,6 @@ from.models import category,subcategory
 
 # Register your models here.
 
-
 @admin.register(category)
 class categoryAdmin(admin.ModelAdmin):
     list_display = ('title','date','slue')
@@ -18,7 +17,6 @@ class subcategoryAdmin(admin.ModelAdmin):
     list_filter = ("title",'slue' )
     search_fields = ("title",'slue')
     prepopulated_fields = {'slue': ('title',)}
-
 
 @admin.register(Product)
 class subcategoryAdmin(admin.ModelAdmin):

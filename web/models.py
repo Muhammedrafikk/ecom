@@ -2,9 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-
 class category(models.Model):
-
     image = models.ImageField()
     title = models.CharField(max_length=100)
     slue = models.CharField(max_length=100)
@@ -15,7 +13,6 @@ class category(models.Model):
         return self.title
 
 class subcategory(models.Model):
-
     image = models.ImageField()
     title = models.CharField(max_length=100)
     slue = models.CharField(max_length=100)
@@ -25,7 +22,6 @@ class subcategory(models.Model):
         return self.title
     
 class Product(models.Model):
-
     image = models.ImageField()
     title = models.CharField(max_length=100)
     price = models.DateField()
