@@ -2,32 +2,40 @@ from django.db import models
 
 # Create your models here.
 
-class category(models.Model):
-    image = models.ImageField()
-    title = models.CharField(max_length=100)
-    slue = models.CharField(max_length=100)
-    date = models.DateField()
-    slue = models.CharField(max_length=50)
+class Category(models.Model):
+    name = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.title
-
-class subcategory(models.Model):
-    image = models.ImageField()
-    title = models.CharField(max_length=100)
-    slue = models.CharField(max_length=100)
-    category = models.ForeignKey(category, on_delete=models.CASCADE , related_name='category')
-
-    def __str__(self):
-        return self.title
+        return self.name
     
+    class Meta:
+        verbose_name = ("Category")
+        verbose_name_plural = ("Category") 
+    
+    
+class Sub_Category(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name  
+
+    class Meta:
+        verbose_name = ("Subcategory")
+        verbose_name_plural = ("Subcategory") 
+
+
 class Product(models.Model):
+    subcategory = models.ForeignKey(Sub_Category, on_delete=models.CASCADE)
     image = models.ImageField()
+    images = models.ImageField()
+    name = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
-    price = models.DateField()
-    slue = models.CharField(max_length=100)
-    subcategory = models.ForeignKey(subcategory, on_delete=models.CASCADE , related_name='subcategory')
+    price = models.IntegerField()
 
     def __str__(self):
         return self.title
     
+    class Meta:
+        verbose_name = ("Product")
+        verbose_name_plural = ("Product") 
