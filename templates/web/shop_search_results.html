@@ -72,7 +72,7 @@
                                                 <ul class="sublinks">
                                                     {% for i in c.sub_category_set.all %}                                     
                                                     {% with count=i.product_set.all|length %}
-                                                    <li class="lvl3"><a href="/?category={{i.id}}" class="site-nav">{{ i.name }}<span class="count">{{ count }}</span></a></li>
+                                                        <li class="lvl3"><a href="/?category={{i.id}}" class="site-nav">{{ i.name }}<span class="count">{{ count }}</span></a></li>
                                                     {% endwith %}
                                                     {% endfor %}
                                                 </ul>
